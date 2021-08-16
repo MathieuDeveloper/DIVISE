@@ -7,7 +7,6 @@ function getValues() {
     viseValue = parseInt(viseValue);
 
     createValues(ditValue, viseValue);
-    alert(hundredValues);
     displayNumbers(hundredValues);
 
 }
@@ -45,7 +44,7 @@ function displayNumbers(hundredValues) {
 
         templateTab += `<tr><td>${number}</td></tr>`;
 
- document.getElementById("results").innerHTML = templateTab;
-    
+
 }
+document.getElementById("results").innerHTML = templateTab;
 }
