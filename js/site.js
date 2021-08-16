@@ -6,45 +6,34 @@ function getValues() {
     ditValue = parseInt(ditValue);
     viseValue = parseInt(viseValue);
 
-    createValues(ditValue, viseValue);
-    displayNumbers(hundredValues);
+
+    
+    displayNumbers(ditValue, viseValue);
 
 }
 
-// logic function
-function createValues(ditValue, viseValue) {
-let hundredValues = []
-    for (let hValue = 0; hValue <= 100; hValue++) {
+
+//view function
+function displayNumbers(ditValue, viseValue) {
+    let templateTab = ""
+
+    for (let i = 0; i <= 100; i++) {
         
-        if (hValue % ditValue == 0 && hValue % viseValue == 0) {
-            hundredValues.push("Divise");
+        if (i % ditValue == 0 && i % viseValue == 0) {
+            templateTab += `<tr><td>FizzBuzz</td></tr>`;
             
         } else {
-            if (hValue % ditValue == 0 && hValue % viseValue != 0) {
-                hundredValues.push("Dit");               
+            if (i % ditValue == 0 && i % viseValue != 0) {
+                templateTab += `<tr><td>Fizz</td></tr>`;               
             } else {
-                if (hValue % ditValue != 0 && hValue % viseValue == 0) {
-                    hundredValues.push("Vise");
+                if (i % ditValue != 0 && i % viseValue == 0) {
+                    templateTab += `<tr><td>Buzz</td></tr>`;
                 } else {
-                    hundredValues.push(hValue);
+                    templateTab += `<tr><td>${i}</td></tr>`;
                 }
             }            
         }           
     }
-    return hundredValues;
-}
 
-//view function
-function displayNumbers(hundredValues) {
-    let templateTab = ""
-
-    for (let index = 0; index < hundredValues.length; index++) {
-
-        let number = hundredValues[index];
-
-        templateTab += `<tr><td>${number}</td></tr>`;
-
-
-}
 document.getElementById("results").innerHTML = templateTab;
 }
