@@ -17,7 +17,7 @@ function getValues() {
 function displayNumbers(ditValue, viseValue) {
     let templateTab = ""
 
-    for (let i = 0; i <= 100; i++) {
+    for (let i = 1; i <= 100; i++) {
         
         if (i % ditValue == 0 && i % viseValue == 0) {
             templateTab += `<tr><td>FizzBuzz</td></tr>`;
