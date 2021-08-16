@@ -1,28 +1,33 @@
 // get values, call functions
 function getValues() {
-    let ditValue = document.getElementById("ditValue");
-    let viseValue = document.getElementById("viseValue");
+    let ditValue = document.getElementById("ditValue").value;
+    let viseValue = document.getElementById("viseValue").value;
 
     ditValue = parseInt(ditValue);
     viseValue = parseInt(viseValue);
+
+    createValues(ditValue, viseValue);
+    alert(hundredValues);
+    displayNumbers(hundredValues);
+
 }
 
 // logic function
-function createValues() {
+function createValues(ditValue, viseValue) {
 let hundredValues = []
     for (let hValue = 0; hValue <= 100; hValue++) {
         
-        if (hvalue % 3 == 0 && hvalue % 5 == 0) {
-            hundreValues.push("Divise");
+        if (hValue % ditValue == 0 && hValue % viseValue == 0) {
+            hundredValues.push("Divise");
             
         } else {
-            if (hvalue % 3 == 0 && hvalue % 5 != 0) {
-                hundreValues.push("Dit");               
+            if (hValue % ditValue == 0 && hValue % viseValue != 0) {
+                hundredValues.push("Dit");               
             } else {
-                if (hvalue % 3 != 0 && hvalue % 5 == 0) {
-                    hundreValues.push("Vise");
+                if (hValue % ditValue != 0 && hValue % viseValue == 0) {
+                    hundredValues.push("Vise");
                 } else {
-                    hundreValues.push(hValue);
+                    hundredValues.push(hValue);
                 }
             }            
         }           
@@ -31,9 +36,16 @@ let hundredValues = []
 }
 
 //view function
-function displayNumbers() {
-    
+function displayNumbers(hundredValues) {
+    let templateTab = ""
 
+    for (let index = 0; index < hundredValues.length; index++) {
+
+        let number = hundredValues[index];
+
+        templateTab += `<tr><td>${number}</td></tr>`;
+
+ document.getElementById("results").innerHTML = templateTab;
     
-    document.getElementById("results").innerHTML = templateTab;
+}
 }
