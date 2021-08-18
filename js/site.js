@@ -7,33 +7,41 @@ function getValues() {
     buzzValue = parseInt(buzzValue);
 
 
-    
-    displayNumbers(fizzValue, buzzValue);
 
+    logicNumbers(fizzValue, buzzValue);
+    displayFb(valArray);
 }
 
 
-//view function
-function displayNumbers(fizzValue, buzzValue) {
-    let templateTab = ""
+//logic function
+function logicNumbers(fizzValue, buzzValue) {
+    let valArray = [];
 
-    for (let i = 1; i <= 100; i++) {
-        
+    for (let i = 1; i <= 5; i++) {
+
         if (i % fizzValue == 0 && i % buzzValue == 0) {
-            templateTab += `<tr><td>FizzBuzz</td></tr>`;
-            
+            valArray.push('fizzbuzz');
+
         } else {
             if (i % fizzValue == 0 && i % buzzValue != 0) {
-                templateTab += `<tr><td>Fizz</td></tr>`;               
+                valArray.push('fizz');
             } else {
                 if (i % fizzValue != 0 && i % buzzValue == 0) {
-                    templateTab += `<tr><td>Buzz</td></tr>`;
+                    valArray.push('buzz');
                 } else {
-                    templateTab += `<tr><td>${i}</td></tr>`;
+                    valArray.push(i);
                 }
-            }            
-        }           
+            }
+        }
     }
 
-document.getElementById("results").innerHTML = templateTab;
+    return valArray;
+}
+// display
+function displayFb(valArray){
+    let templateRows ="";
+    for (let index = 0; i <= valArray.length ; index++) {
+        templateRows += `<tr><td>${valArray[index]}</td></tr>`;        
+    }
+
 }
