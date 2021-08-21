@@ -31,6 +31,9 @@ function fizzBuzz(fizzValue, buzzValue) {
     return valuesArray;
 }
 
+
+
+
 // display function
 function displayFb(fbArray) {
     let tableBody = document.getElementById("results");

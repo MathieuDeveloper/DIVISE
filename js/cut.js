@@ -1,39 +1,21 @@
-// get values, call functions
-function getValues() {
-    let fizzValue = document.getElementById("fizzValue").value;
-    let buzzValue = document.getElementById("buzzValue").value;
+function displayValues(fbArray) {
 
-    fizzValue = parseInt(fizzValue);
-    buzzValue = parseInt(buzzValue);
+    let tableBoby = document.getElementById("results");
+    tableBoby = tableBoby.innerHTML = "";
 
+    let templateRow = document.getElementById("fbTemplate");
 
-    
-    displayNumbers(fizzValue, buzzValue);
-
-}
+    for (let index = 0; index < fbArray.length; index += 5) {
 
 
-//view function
-function displayNumbers(fizzValue, buzzValue) {
-    let templateTab = ""
 
-    for (let i = 1; i <= 100; i++) {
-        
-        if (i % fizzValue == 0 && i % buzzValue == 0) {
-            templateTab += `<tr><td>FizzBuzz</td></tr>`;
-            
-        } else {
-            if (i % fizzValue == 0 && i % buzzValue != 0) {
-                templateTab += `<tr><td>Fizz</td></tr>`;               
-            } else {
-                if (i % fizzValue != 0 && i % buzzValue == 0) {
-                    templateTab += `<tr><td>Buzz</td></tr>`;
-                } else {
-                    templateTab += `<tr><td>${i}</td></tr>`;
-                }
-            }            
-        }           
+        let tableRow = document.importNode(templateRow.content, true);
+        let rowCols = tableRow.querySelectorAll("td");
+
+        rowcols[1].classList.add(fbArray[index]);
+        rowCols[1] = fbArray[index];
+
+        tableBody.appenedChild(templateRow);
+
     }
-
-document.getElementById("results").innerHTML = templateTab;
 }
