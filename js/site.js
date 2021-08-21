@@ -6,42 +6,59 @@ function getValues() {
     fizzValue = parseInt(fizzValue);
     buzzValue = parseInt(buzzValue);
 
-
-
-    logicNumbers(fizzValue, buzzValue);
-    displayFb(valArray);
+    if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
+        let fbArray = fizzBuzz(fizzValue, buzzValue);
+        displayFb(fbArray);
+    } else {
+        alert("You must enter integers");
+    }
 }
-
 
 //logic function
-function logicNumbers(fizzValue, buzzValue) {
-    let valArray = [];
-
-    for (let i = 1; i <= 5; i++) {
-
+function fizzBuzz(fizzValue, buzzValue) {
+    let valuesArray = [];
+    for (let i = 1; i <= 100; i++) {
         if (i % fizzValue == 0 && i % buzzValue == 0) {
-            valArray.push('fizzbuzz');
-
+            valuesArray.push('fizzbuzz');
+        } else if (i % fizzValue == 0 && i % buzzValue != 0) {
+            valuesArray.push('fizz');
+        } else if (i % fizzValue != 0 && i % buzzValue == 0) {
+            valuesArray.push('buzz');
         } else {
-            if (i % fizzValue == 0 && i % buzzValue != 0) {
-                valArray.push('fizz');
-            } else {
-                if (i % fizzValue != 0 && i % buzzValue == 0) {
-                    valArray.push('buzz');
-                } else {
-                    valArray.push(i);
-                }
-            }
+            valuesArray.push(i);
         }
     }
-
-    return valArray;
+    return valuesArray;
 }
-// display
-function displayFb(valArray){
-    let templateRows ="";
-    for (let index = 0; i <= valArray.length ; index++) {
-        templateRows += `<tr><td>${valArray[index]}</td></tr>`;        
+
+// display function
+function displayFb(fbArray) {
+    let tableBody = document.getElementById("results");
+    tableBody.innerHTML = "";
+    let templateRow = document.getElementById("fbTemplate");
+
+    for (let index = 0; index < fbArray.length; index += 5) {
+
+        let tableRow = document.importNode(templateRow.content, true);
+        let rowCols = tableRow.querySelectorAll("td");
+
+        rowCols[0].classList.Add(fbArray[index]);
+        rowCols[0].textContent = fbArray[index];
+
+        rowCols[1].classList.Add(fbArray[index + 1]);
+        rowCols[1].textContent = fbArray[index + 1];
+
+        rowCols[2].classList.Add(fbArray[index + 2 ]);
+        rowCols[2].textContent = fbArray[index + 2];
+
+        rowCols[3].classList.Add(fbArray[index + 3]);
+        rowCols[3].textContent = fbArray[index + 3];
+
+        rowCols[4].classList.Add(fbArray[index + 4]);
+        rowCols[4].textContent = fbArray[index + 4];
+        
+        tableBody.appendChild(tableRow);
     }
+
 
 }
