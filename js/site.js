@@ -7,7 +7,7 @@ function getValues() {
     buzzValue = parseInt(buzzValue);
 
     if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
-        let fbArray = fizzBuzz(fizzValue, buzzValue);
+        let fbArray = fizzBuzzC(fizzValue, buzzValue);
         displayFb(fbArray);
     } else {
         alert("You must enter integers");
@@ -31,7 +31,51 @@ function fizzBuzz(fizzValue, buzzValue) {
     return valuesArray;
 }
 
+// function B
 
+function fizzBuzzB(fizzValue, buzzValue) {
+    let valuesArray = [];
+    let fizz = false;
+    let buzz = false;
+
+    for (let i = 1; i <= 100; i++) {
+
+        fizz = i % fizzValue == 0;
+        buzz = i % buzzValue == 0;
+
+        switch (true) {
+            case fizz && buzz: {
+                valuesArray.push('FizzBuzz');
+                break;
+            }
+            case fizz: {
+                valuesArray.push('Fizz');
+                break;
+            }
+            case buzz: {
+                valuesArray.push('Buzz');
+                break;
+            }
+            default: {
+                valuesArray.push(i);
+                break;
+            }
+
+        }
+    }
+    return valuesArray;
+
+}
+
+function fizzBuzzC(fizzValue, buzzValue) {
+    let valuesArray = [];
+    for (let i = 1; i <= 100; i++) {
+        let value = ((i % fizzValue == 0 ? 'Fizz' : '') + (i % buzzValue == 0 ? 'Buzz' : '') || i);
+        valuesArray.push(value);
+    }
+    return valuesArray;
+
+}
 
 
 // display function
@@ -51,7 +95,7 @@ function displayFb(fbArray) {
         rowCols[1].classList.add(fbArray[index + 1]);
         rowCols[1].textContent = fbArray[index + 1];
 
-        rowCols[2].classList.add(fbArray[index + 2 ]);
+        rowCols[2].classList.add(fbArray[index + 2]);
         rowCols[2].textContent = fbArray[index + 2];
 
         rowCols[3].classList.add(fbArray[index + 3]);
@@ -59,7 +103,7 @@ function displayFb(fbArray) {
 
         rowCols[4].classList.add(fbArray[index + 4]);
         rowCols[4].textContent = fbArray[index + 4];
-        
+
         tableBody.appendChild(tableRow);
     }
 
