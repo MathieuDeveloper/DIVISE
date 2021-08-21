@@ -19,11 +19,11 @@ function fizzBuzz(fizzValue, buzzValue) {
     let valuesArray = [];
     for (let i = 1; i <= 100; i++) {
         if (i % fizzValue == 0 && i % buzzValue == 0) {
-            valuesArray.push('fizzbuzz');
+            valuesArray.push('FizzBuzz');
         } else if (i % fizzValue == 0 && i % buzzValue != 0) {
-            valuesArray.push('fizz');
+            valuesArray.push('Fizz');
         } else if (i % fizzValue != 0 && i % buzzValue == 0) {
-            valuesArray.push('buzz');
+            valuesArray.push('Buzz');
         } else {
             valuesArray.push(i);
         }
@@ -42,19 +42,19 @@ function displayFb(fbArray) {
         let tableRow = document.importNode(templateRow.content, true);
         let rowCols = tableRow.querySelectorAll("td");
 
-        rowCols[0].classList.Add(fbArray[index]);
+        rowCols[0].classList.add(fbArray[index]);
         rowCols[0].textContent = fbArray[index];
 
-        rowCols[1].classList.Add(fbArray[index + 1]);
+        rowCols[1].classList.add(fbArray[index + 1]);
         rowCols[1].textContent = fbArray[index + 1];
 
-        rowCols[2].classList.Add(fbArray[index + 2 ]);
+        rowCols[2].classList.add(fbArray[index + 2 ]);
         rowCols[2].textContent = fbArray[index + 2];
 
-        rowCols[3].classList.Add(fbArray[index + 3]);
+        rowCols[3].classList.add(fbArray[index + 3]);
         rowCols[3].textContent = fbArray[index + 3];
 
-        rowCols[4].classList.Add(fbArray[index + 4]);
+        rowCols[4].classList.add(fbArray[index + 4]);
         rowCols[4].textContent = fbArray[index + 4];
         
         tableBody.appendChild(tableRow);

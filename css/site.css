@@ -63,16 +63,17 @@ h1,h2,h3,h4,h5,h6 {
     color: var(--primary-color);
 }
 
-.fizz{
+.Fizz{
     color: darkorange;
 }
 
-.buzz{
+.Buzz{
     color: darkmagenta;
 }
 
-.fizzbuzz{
+.FizzBuzz{
     color: darkred;
+    font-weight: bold;
 }
 
 main>.container {
