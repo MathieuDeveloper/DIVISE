@@ -14,8 +14,8 @@ function getValues() {
     }
 }
 
-//logic function
-function fizzBuzz(fizzValue, buzzValue) {
+//logic function A
+function fizzBuzzA(fizzValue, buzzValue) {
     let valuesArray = [];
     for (let i = 1; i <= 100; i++) {
         if (i % fizzValue == 0 && i % buzzValue == 0) {
@@ -31,8 +31,7 @@ function fizzBuzz(fizzValue, buzzValue) {
     return valuesArray;
 }
 
-// function B
-
+//logic function B
 function fizzBuzzB(fizzValue, buzzValue) {
     let valuesArray = [];
     let fizz = false;
@@ -60,13 +59,12 @@ function fizzBuzzB(fizzValue, buzzValue) {
                 valuesArray.push(i);
                 break;
             }
-
         }
     }
     return valuesArray;
-
 }
 
+//logic function C
 function fizzBuzzC(fizzValue, buzzValue) {
     let valuesArray = [];
     for (let i = 1; i <= 100; i++) {
@@ -76,7 +74,6 @@ function fizzBuzzC(fizzValue, buzzValue) {
     return valuesArray;
 
 }
-
 
 // display function
 function displayFb(fbArray) {
@@ -106,6 +103,4 @@ function displayFb(fbArray) {
 
         tableBody.appendChild(tableRow);
     }
-
-
 }
